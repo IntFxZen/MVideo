@@ -83,39 +83,6 @@ group_C,unknown_product,-8
 - **product_id**: идентификатор товара
 - **quantity**: итоговый остаток (может быть отрицательным)
 
-## Пример работы
-
-### Входной файл (input.csv):
-```
-type,group_id,product_id,quantity
-ARRIVAL,group_A,product_2,10
-ARRIVAL,group_A,product_1,20
-SALE,group_A,,15
-ARRIVAL,group_B,product_5,5
-SALE,group_B,,10
-SALE,group_C,,8
-```
-
-### Шаги обработки:
-1. Поступление в group_A: product_2 = 10
-2. Поступление в group_A: product_1 = 20
-3. Продажа из group_A на 15 единиц:
-   - Товар product_1 (выше по рангу) ≈ 5 (продано 15)
-   - Товар product_2 = 10 (не затронут)
-4. Поступление в group_B: product_5 = 5
-5. Продажа из group_B на 10 единиц:
-   - Товар product_5 = -5 (продано 5, долг 5)
-6. Попытка продажи из group_C (не существует):
-   - Создана запись unknown_product = -8
-
-### Выходной файл (output.csv):
-```
-group_id,product_id,quantity
-group_A,product_1,5
-group_A,product_2,10
-group_B,product_5,-5
-group_C,unknown_product,-8
-```
 
 ## Логирование
 
