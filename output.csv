@@ -1,5 +1,7 @@
 group_id,product_id,quantity
-group_A,product_1,5
-group_A,product_2,10
-group_B,product_5,-5
-group_C,unknown_product,-8
+accessories,case_1,50
+laptops,laptop_Pro,5
+smartphones,phone_A,-5
+smartphones,phone_B,0
+smartphones,phone_C,0
+tv,unknown_product,-5

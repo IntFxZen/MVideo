@@ -1,7 +1,10 @@
-type,group_id,product_id,quantity
-ARRIVAL,group_A,product_2,10
-ARRIVAL,group_A,product_1,20
-SALE,group_A,,15
-ARRIVAL,group_B,product_5,5
-SALE,group_B,,10
-SALE,group_C,,8
+smartphones;phone_A;50
+smartphones;phone_B;30
+laptops;laptop_Pro;10
+smartphones;20
+accessories;case_1;100
+smartphones;phone_C;5
+smartphones;70
+tv;5
+laptops;5
+accessories;50
