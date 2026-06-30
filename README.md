@@ -1,4 +1,4 @@
-# MVideo Inventory Management System
+# MVideo
 
 Программа на Kotlin для обработки операций с товаром (поступления и продажи) и расчета остатков на складе.
 
@@ -56,9 +56,6 @@ gradlew.bat run --args="input.csv output.csv"
 electronics;phone_A;50
 electronics;40
 ```
-
-Выход
-CSV с заголовком: `group_id,product_id,quantity` (запятая)
 
 Допущения
 - Количества — целые числа
