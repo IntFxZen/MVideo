@@ -1,0 +1,5 @@
+group_id,product_id,quantity
+group_A,product_1,5
+group_A,product_2,10
+group_B,product_5,-5
+group_C,unknown_product,-8

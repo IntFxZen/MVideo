@@ -5,7 +5,7 @@ import com.nn.mvideo.model.ProductBalance
 import java.util.TreeMap
 
 class InventoryService {
-    private val storage = HashMap<String, TreeMap<String, Int>>()
+    private val storage = TreeMap<String, TreeMap<String, Int>>()
 
     fun processOperation(operation: Operation) {
         when (operation) {
