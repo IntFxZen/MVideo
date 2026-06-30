@@ -36,11 +36,6 @@ cd MVideo
 ./gradlew run --args="input.csv output.csv"
 ```
 
-Или в Windows:
-```cmd
-gradlew.bat run --args="input.csv output.csv"
-```
-
 **Параметры:**
 - `input.csv` - путь к входному CSV-файлу с операциями
 - `output.csv` - путь к выходному CSV-файлу с результатами
