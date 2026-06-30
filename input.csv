@@ -1,0 +1,7 @@
+type,group_id,product_id,quantity
+ARRIVAL,group_A,product_2,10
+ARRIVAL,group_A,product_1,20
+SALE,group_A,,15
+ARRIVAL,group_B,product_5,5
+SALE,group_B,,10
+SALE,group_C,,8

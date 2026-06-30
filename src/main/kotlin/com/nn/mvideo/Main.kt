@@ -1,16 +1,43 @@
-package org.example.com.nn.mvideo
+package com.nn.mvideo
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-fun main() {
-    val name = "Kotlin"
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    println("Hello, " + name + "!")
+import com.nn.mvideo.io.CsvReader
+import com.nn.mvideo.io.CsvWriter
+import com.nn.mvideo.service.InventoryService
+import org.slf4j.LoggerFactory
 
-    for (i in 1..5) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        println("i = $i")
+private val logger = LoggerFactory.getLogger("Main")
+
+fun main(args: Array<String>) {
+    if (args.size < 2) {
+        logger.error("Необходимо передать два аргумента: <путь_к_input.csv> <путь_к_output.csv>")
+        return
     }
+
+    val inputPath = args[0]
+    val outputPath = args[1]
+
+    logger.info("Запуск обработки инвентаризации...")
+    logger.info("Входной файл: $inputPath")
+    logger.info("Выходной файл: $outputPath")
+
+    val csvReader = CsvReader()
+    val csvWriter = CsvWriter()
+    val inventoryService = InventoryService()
+
+    val operations = csvReader.readOperations(inputPath)
+    if (operations.isEmpty()) {
+        logger.warn("Не найдено операций для обработки или файл пуст.")
+        return
+    }
+    logger.info("Успешно прочитано операций: ${operations.size}")
+
+    for (operation in operations) {
+        inventoryService.processOperation(operation)
+    }
+    logger.info("Все операции успешно обработаны.")
+
+    val finalStocks = inventoryService.getCurrentStocks()
+
+    csvWriter.writeStocks(outputPath, finalStocks)
+    logger.info("Готово! Результаты сохранены в $outputPath")
 }
